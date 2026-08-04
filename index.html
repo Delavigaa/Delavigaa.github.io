@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ahmed Emad — DevOps &amp; AI engineer, kernel to cloud</title>
+<meta name="description" content="Ahmed Emad is a DevOps and AI engineer in Cairo. Real-time multilingual broadcast pipelines, production infrastructure for government systems, Linux kernel development, and a shipped multiplayer Roblox title." />
+<meta name="theme-color" content="#0B0E16" />
+<meta property="og:title" content="Ahmed Emad — DevOps & AI engineer, kernel to cloud" />
+<meta property="og:description" content="Real-time AI media pipelines, production infrastructure, Linux kernel development. Cairo, Egypt." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0B0E16;
+  --surface:#141926;
+  --surface-2:#1B2130;
+  --line:rgba(255,255,255,.10);
+  --line-soft:rgba(255,255,255,.055);
+  --text:#EEF1F7;
+  --text-2:#8C97AB;
+
+  --amber:#FFB03A;   /* infrastructure & devops */
+  --azure:#5B8CFF;   /* AI & media systems */
+  --mint:#3FE0B0;    /* systems & kernel */
+  --violet:#A78BFF;  /* research */
+  --rose:#FF4E87;    /* games */
+
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --shell:min(1180px,92vw);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--serif);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--amber);color:#0B0E16}
+a{color:inherit}
+img{max-width:100%}
+
+.aura{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aura::before,.aura::after{content:"";position:absolute;width:62vw;height:62vw;border-radius:50%;filter:blur(95px)}
+.aura::before{top:-26vw;left:-16vw;background:radial-gradient(circle,rgba(255,176,58,.16),transparent 65%)}
+.aura::after{top:4vw;right:-24vw;background:radial-gradient(circle,rgba(91,140,255,.20),transparent 65%)}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1px);background-size:3px 3px}
+
+.shell{width:var(--shell);margin:0 auto;position:relative;z-index:2}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-2);font-weight:500}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:0;z-index:60;background:rgba(11,14,22,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
+.mark{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.mark span{color:var(--text-2);font-weight:400}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(63,224,176,.55);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(63,224,176,0)}100%{box-shadow:0 0 0 0 rgba(63,224,176,0)}}
+.nav{display:flex;gap:1.4rem;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--text-2);padding-bottom:2px;border-bottom:1px solid transparent;transition:color .18s,border-color .18s}
+.nav a:hover,.nav a:focus-visible{color:var(--text);border-color:var(--amber)}
+@media(max-width:720px){.nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(3.5rem,9vw,7rem) 0 clamp(2.5rem,5vw,4rem)}
+.name{font-family:var(--display);font-weight:800;font-size:clamp(3.2rem,14vw,10rem);line-height:.84;letter-spacing:-.045em;margin:0}
+.name em{font-style:normal;display:block;background:linear-gradient(96deg,var(--amber) 0%,#FF8A5B 45%,var(--azure) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.thesis{font-size:clamp(1.15rem,2.3vw,1.6rem);line-height:1.45;max-width:36ch;margin:1.9rem 0 0;font-weight:200;color:#D6DCE8}
+.thesis b{font-weight:400;color:var(--mint)}
+.thesis i{font-style:normal;font-weight:400;color:var(--amber)}
+
+/* signature: the stack he works across */
+.stack{margin:3rem 0 0;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:rgba(20,25,38,.5)}
+.layer{display:grid;grid-template-columns:150px 1fr;gap:1rem;align-items:center;padding:.85rem 1.1rem;border-bottom:1px solid var(--line-soft);position:relative}
+.layer:last-child{border-bottom:none}
+.layer-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--lh);white-space:nowrap}
+.layer-b{height:9px;border-radius:2px;background:linear-gradient(90deg,var(--lh),color-mix(in srgb,var(--lh) 12%,transparent));
+  transform:scaleX(0);transform-origin:left;animation:grow .9s cubic-bezier(.2,.75,.2,1) forwards}
+.layer-t{font-family:var(--mono);font-size:11px;color:var(--text-2);margin-top:.45rem;letter-spacing:.02em}
+@keyframes grow{to{transform:scaleX(1)}}
+.l1{--lh:var(--mint)}   .l1 .layer-b{animation-delay:.25s;width:38%}
+.l2{--lh:var(--amber)}  .l2 .layer-b{animation-delay:.45s;width:62%}
+.l3{--lh:var(--azure)}  .l3 .layer-b{animation-delay:.65s;width:84%}
+.l4{--lh:var(--violet)} .l4 .layer-b{animation-delay:.85s;width:100%}
+@media(max-width:640px){.layer{grid-template-columns:1fr;gap:.4rem}}
+
+/* figures */
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line);margin-top:1.6rem;border-radius:2px;overflow:hidden}
+.fig{background:var(--surface);padding:1.2rem 1.25rem;position:relative;transition:background .2s}
+.fig::after{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:currentColor;opacity:.85}
+.fig:hover{background:var(--surface-2)}
+.fig-1{color:var(--azure)} .fig-2{color:var(--amber)} .fig-3{color:var(--violet)} .fig-4{color:var(--mint)}
+.fig-n{font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,3vw,2.1rem);letter-spacing:-.03em;line-height:1;color:currentColor}
+.fig-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-2);margin-top:.55rem;line-height:1.5}
+@media(max-width:760px){.figs{grid-template-columns:1fr 1fr}}
+
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem}
+.btn{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.2rem;border:1px solid var(--line);color:var(--text);border-radius:2px;transition:background .18s,border-color .18s,transform .18s,color .18s}
+.btn:hover,.btn:focus-visible{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
+.btn-fill{background:var(--amber);border-color:var(--amber);color:#120C02;font-weight:600}
+.btn-fill:hover,.btn-fill:focus-visible{background:#FFC469;border-color:#FFC469;color:#120C02}
+
+/* ---------- sections ---------- */
+.sec{padding:clamp(3.5rem,7vw,6rem) 0;border-top:1px solid var(--line-soft)}
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.6rem}
+.sec-head h2{font-family:var(--display);font-weight:600;letter-spacing:-.03em;font-size:clamp(1.7rem,4vw,2.7rem);margin:0;line-height:1}
+.sec-head .eyebrow{margin-left:auto}
+@media(max-width:620px){.sec-head{flex-wrap:wrap}.sec-head .eyebrow{margin-left:0;width:100%}}
+
+/* ---------- work ---------- */
+.work{display:flex;flex-direction:column;gap:1.4rem}
+.card{background:linear-gradient(180deg,var(--surface) 0%,rgba(20,25,38,.6) 100%);border:1px solid var(--line);border-left:3px solid var(--hue,var(--azure));border-radius:3px;padding:clamp(1.4rem,3vw,2.3rem);display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(1.4rem,4vw,3.5rem);transition:transform .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 50px -28px var(--hue,var(--azure))}
+.card-ai{--hue:var(--azure)}
+.card-kernel{--hue:var(--mint)}
+.card-game{--hue:var(--rose)}
+.card-research{--hue:var(--violet)}
+@media(max-width:860px){.card{grid-template-columns:1fr}}
+.card h3{font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.85rem);letter-spacing:-.025em;margin:.5rem 0 .7rem;line-height:1.15}
+.track{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--hue,var(--azure))}
+.lede{margin:0 0 1.2rem;font-weight:300;color:#B9C2D3}
+.bullets{list-style:none;margin:0;padding:0;font-size:16px;line-height:1.55}
+.bullets li{padding-left:1.4rem;position:relative;margin-bottom:.75rem;font-weight:300;color:#C7CEDC}
+.bullets li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:1px;background:var(--hue,var(--azure));opacity:.85}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1.3rem}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);padding:.32rem .58rem;color:var(--text-2);border-radius:2px;transition:color .18s,border-color .18s}
+.card:hover .tag{border-color:color-mix(in srgb,var(--hue) 40%,transparent);color:color-mix(in srgb,var(--hue) 75%,#fff)}
+.links{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.3rem;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+.links a{text-decoration:none;color:var(--hue,var(--azure));border-bottom:1px solid currentColor;padding-bottom:2px;transition:opacity .18s}
+.links a:hover{opacity:.65}
+
+/* ---------- experience ---------- */
+.roles{border-top:1px solid var(--line-soft)}
+.role{display:grid;grid-template-columns:180px 1fr;gap:clamp(1rem,4vw,3rem);padding:1.9rem 0;border-bottom:1px solid var(--line-soft);align-items:start}
+@media(max-width:760px){.role{grid-template-columns:1fr;gap:.5rem}}
+.when{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--text-2);text-transform:uppercase;padding-top:.45rem;display:flex;align-items:center;gap:.6rem}
+.dot{width:8px;height:8px;border-radius:50%;flex:none;background:var(--text-2)}
+.dot-amber{background:var(--amber);box-shadow:0 0 10px rgba(255,176,58,.65)}
+.dot-mint{background:var(--mint);box-shadow:0 0 10px rgba(63,224,176,.6)}
+.dot-violet{background:var(--violet);box-shadow:0 0 10px rgba(167,139,255,.6)}
+.role h3{font-family:var(--display);font-weight:600;font-size:1.3rem;letter-spacing:-.02em;margin:0 0 .2rem}
+.org{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--text-2);text-transform:uppercase;margin-bottom:.9rem}
+.role-amber{--hue:var(--amber)} .role-mint{--hue:var(--mint)} .role-violet{--hue:var(--violet)}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.skill{background:var(--surface);padding:1.6rem;transition:background .2s}
+.skill:hover{background:var(--surface-2)}
+.skill h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin:0 0 .9rem;display:flex;align-items:center;gap:.55rem}
+.skill h3::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.sk-1{color:var(--mint)} .sk-2{color:var(--azure)} .sk-3{color:var(--amber)}
+.sk-4{color:var(--violet)} .sk-5{color:var(--rose)} .sk-6{color:var(--azure)}
+.skill p{margin:0;font-size:16.5px;font-weight:300;line-height:1.7;color:#C7CEDC}
+@media(max-width:760px){.skills{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.foot{border-top:1px solid var(--line);padding:clamp(3rem,7vw,5rem) 0 3rem;position:relative;z-index:2}
+.foot h2{font-family:var(--display);font-weight:800;letter-spacing:-.04em;font-size:clamp(2.2rem,8vw,5rem);line-height:.9;margin:0 0 1.6rem}
+.foot h2 span{background:linear-gradient(96deg,var(--amber),var(--azure));-webkit-background-clip:text;background-clip:text;color:transparent}
+.foot-note{max-width:44ch;font-weight:300;margin:0;color:#B9C2D3}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.7rem;margin-top:2.8rem;padding-top:1.8rem;border-top:1px solid var(--line-soft)}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:1.2rem}}
+.foot-grid h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);font-weight:500;margin:0 0 .5rem}
+.foot-grid a{font-size:16px;font-weight:300;text-decoration:none;border-bottom:1px solid var(--line);display:inline-block;transition:color .18s,border-color .18s}
+.foot-grid a:hover{color:var(--amber);border-color:var(--amber)}
+.foot-grid p{font-size:16px;font-weight:300;margin:0;color:#B9C2D3}
+.colophon{margin-top:3rem;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--text-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+
+/* ---------- reveal + a11y ---------- */
+.rise{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.rise.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--amber);color:#120C02;padding:.6rem 1rem;font-family:var(--mono);font-size:12px}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-delay:0ms !important;transition-duration:.01ms !important}
+  .layer-b{transform:scaleX(1)}
+  .rise{opacity:1;transform:none}html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="aura" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="bar">
+  <div class="shell bar-in">
+    <a class="mark" href="#top"><span class="pulse" aria-hidden="true"></span>Ahmed Emad <span>/ Cairo</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="shell">
+      <h1 class="name">Ahmed<em>Emad</em></h1>
+
+      <p class="thesis">I build the whole stack — <b>custom kernel modules</b> at the bottom, <i>containerized AI services</i> at the top, and the pipelines in between that have to stay up without me watching.</p>
+
+      <div class="stack" aria-label="The layers I work across">
+        <div class="layer l1">
+          <span class="layer-l">Kernel &amp; systems</span>
+          <span><span class="layer-b" style="display:block"></span><span class="layer-t">C · custom modules · CPU scheduling · memory management · I/O</span></span>
+        </div>
+        <div class="layer l2">
+          <span class="layer-l">Infrastructure</span>
+          <span><span class="layer-b" style="display:block"></span><span class="layer-t">Docker · Kubernetes · Nginx · AWS · monitoring · automated deploys</span></span>
+        </div>
+        <div class="layer l3">
+          <span class="layer-l">AI services</span>
+          <span><span class="layer-b" style="display:block"></span><span class="layer-t">Whisper transcription · translation · Arabic TTS · vision · FFmpeg</span></span>
+        </div>
+        <div class="layer l4">
+          <span class="layer-l">People using it</span>
+          <span><span class="layer-b" style="display:block"></span><span class="layer-t">Government operators · web apps · live broadcast monitoring</span></span>
+        </div>
+      </div>
+
+      <div class="figs">
+        <div class="fig fig-1"><div class="fig-n">Real time</div><div class="fig-l">Multilingual broadcast<br>transcription pipeline</div></div>
+        <div class="fig fig-2"><div class="fig-n">Gov</div><div class="fig-l">Systems deployed for the<br>Ministry of Interior</div></div>
+        <div class="fig fig-3"><div class="fig-n">ICCA+U</div><div class="fig-l">Paper presented, Alanya<br>University, Turkey 2024</div></div>
+        <div class="fig fig-4"><div class="fig-n">Kernel → Cloud</div><div class="fig-l">Range I actually<br>work across</div></div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-fill" href="mailto:ahmedemad456478@gmail.com">Email me</a>
+        <a class="btn" href="https://github.com/Delavigaa" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="Ahmed_Emad_CV.pdf">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section class="sec" id="work">
+    <div class="shell">
+      <div class="sec-head rise">
+        <h2>Selected work</h2>
+        <span class="eyebrow">Four systems, top to bottom of the stack</span>
+      </div>
+
+      <div class="work">
+
+        <article class="card card-ai rise">
+          <div>
+            <span class="track">AI media systems — production</span>
+            <h3>IPTV monitoring &amp; Arabic voice platform</h3>
+            <p class="lede">An end-to-end platform that watches live multilingual broadcasts, transcribes them as they air, flags what matters, and speaks the result back in Arabic. Deployed for government use.</p>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li>Ingests live multilingual broadcasts and transcribes in real time with OpenAI Whisper, processing video, audio, and captions through an FFmpeg, Node.js, and Nginx pipeline.</li>
+              <li>Surveillance intelligence layer with configurable keyword watchlists, automated evidence collection, transcript indexing, search, and alerting.</li>
+              <li>Automatic translation and Arabic text-to-speech for non-Arabic broadcasts.</li>
+              <li>Monitoring, logging, retries, and self-recovery so the pipeline keeps running unattended.</li>
+            </ul>
+            <div class="tags"><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">Whisper</span><span class="tag">FFmpeg</span><span class="tag">Nginx</span><span class="tag">PyTorch</span><span class="tag">React</span></div>
+          </div>
+        </article>
+
+        <article class="card card-kernel rise">
+          <div>
+            <span class="track">Systems programming</span>
+            <h3>Linux kernel development</h3>
+            <p class="lede">Custom kernel modules and subsystem tuning — the layer most application engineers never touch.</p>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li>Designed and implemented custom kernel modules extending memory management and CPU scheduling.</li>
+              <li>Cut overhead in I/O operations, improving overall system efficiency.</li>
+              <li>Worked in QEMU with GDB and Valgrind for debugging and validation.</li>
+            </ul>
+            <div class="tags"><span class="tag">C</span><span class="tag">Kernel API</span><span class="tag">QEMU</span><span class="tag">GDB</span><span class="tag">Valgrind</span><span class="tag">Device Tree</span></div>
+          </div>
+        </article>
+
+        <article class="card card-game rise">
+          <div>
+            <span class="track">Live worlds — shipped</span>
+            <h3>Magic Verse</h3>
+            <p class="lede">A live multiplayer action game on Roblox, co-developed and shipped with a development partner.</p>
+            <div class="links">
+              <!-- TODO: paste the Roblox game URL and showcase URL -->
+              <a href="#" target="_blank" rel="noopener">Play the game</a>
+              <a href="#" target="_blank" rel="noopener">Showcase</a>
+            </div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li>Built gameplay and backend systems in Luau, including cross-server services and persistent player data with session-safe saving and recovery.</li>
+              <li>Optimized runtime performance by profiling memory, removing leaks, and batching RemoteEvent traffic to cut network latency.</li>
+              <li>Shipped and maintained a title with live players in it, not a prototype.</li>
+            </ul>
+            <div class="tags"><span class="tag">Luau</span><span class="tag">Roblox Studio</span><span class="tag">DataStores</span><span class="tag">Client–server</span></div>
+          </div>
+        </article>
+
+        <article class="card card-research rise">
+          <div>
+            <span class="track">Research — published &amp; presented</span>
+            <h3>Architectural evolution with GANs</h3>
+            <p class="lede">Innovative Design Synthesis: A Study of Architectural Evolution with Generative Adversarial Networks — accepted and presented at ICCA+U 2024, Alanya University, Turkey.</p>
+            <div class="links">
+              <a href="https://drive.google.com/file/d/16ylLnx5pZ50RBb5aHQBjG_3uimR5N0wA/view?usp=sharing" target="_blank" rel="noopener">Acceptance letter</a>
+              <a href="https://drive.google.com/file/d/1fXMj1x43mJz9hCW8Yr0ANhacPtsSC7R-/view?usp=sharing" target="_blank" rel="noopener">Certificate</a>
+              <a href="https://orcid.org/0009-0004-2695-5822" target="_blank" rel="noopener">ORCID</a>
+            </div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li>Accepted to the 7th International Conference on Contemporary Affairs in Architecture and Urbanism, May 2024.</li>
+              <li>Awarded a Certificate of Presentation for delivering the paper at the conference.</li>
+              <li>Applied generative adversarial networks to design synthesis in an architectural context.</li>
+            </ul>
+            <div class="tags"><span class="tag">GANs</span><span class="tag">Deep learning</span><span class="tag">PyTorch</span><span class="tag">Research</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="sec" id="experience">
+    <div class="shell">
+      <div class="sec-head rise">
+        <h2>Experience</h2>
+        <span class="eyebrow">Cairo, Egypt</span>
+      </div>
+
+      <div class="roles">
+        <div class="role role-amber rise">
+          <div class="when"><span class="dot dot-amber"></span>Feb 2024 — Mar 2025</div>
+          <div>
+            <h3>DevOps &amp; AI Engineer</h3>
+            <div class="org">Mirando AI Solutions</div>
+            <ul class="bullets">
+              <li>Built and deployed AI systems for government-sector projects, including a face recognition platform and the IPTV multilingual media monitoring platform used by the Ministry of Interior.</li>
+              <li>Designed and maintained production infrastructure with Docker, monitoring, and automated deployment workflows, keeping systems reliable and scalable under continuous load.</li>
+              <li>Developed an AI news translation platform that translates multilingual content automatically and serves it through a supporting web application.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role role-mint rise">
+          <div class="when"><span class="dot dot-mint"></span>Nov 2023 — Jan 2024</div>
+          <div>
+            <h3>Full Stack Web Developer</h3>
+            <div class="org">ALX Software Engineering</div>
+            <ul class="bullets">
+              <li>Built a Bash console demonstrating scripting and command-line interface development.</li>
+              <li>Developed an interactive kernel in C, focused on advanced system-level programming.</li>
+              <li>Shipped a fully functional Airbnb clone with user authentication, a booking system, and property management.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role role-violet rise">
+          <div class="when"><span class="dot dot-violet"></span>2020 — 2024</div>
+          <div>
+            <h3>BSc Computer Science</h3>
+            <div class="org">6th of October University</div>
+            <p class="lede" style="margin:0">Graduated July 2024. Conference paper on GANs for architectural design synthesis accepted and presented at ICCA+U 2024.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="sec" id="skills">
+    <div class="shell">
+      <div class="sec-head rise">
+        <h2>Toolkit</h2>
+        <span class="eyebrow">What I reach for</span>
+      </div>
+      <div class="skills rise">
+        <div class="skill"><h3 class="sk-1">Languages</h3><p>C · C++ · Python · Java · JavaScript · Lua (Luau) · Bash · HTML &amp; CSS</p></div>
+        <div class="skill"><h3 class="sk-2">AI &amp; machine learning</h3><p>PyTorch · TensorFlow · OpenCV · OpenAI Whisper · Deep learning · NLP · Text-to-speech</p></div>
+        <div class="skill"><h3 class="sk-3">Infrastructure &amp; DevOps</h3><p>Docker · Kubernetes · AWS · Google Cloud · Nginx · Monitoring · Automated deployment</p></div>
+        <div class="skill"><h3 class="sk-4">Systems &amp; low level</h3><p>Linux kernel development · Kernel modules · CPU scheduling · Memory management · QEMU · GDB · Valgrind</p></div>
+        <div class="skill"><h3 class="sk-5">Web &amp; data</h3><p>React · Express · Node.js · MongoDB · SQL · REST APIs</p></div>
+        <div class="skill"><h3 class="sk-6">Media pipelines</h3><p>FFmpeg · Live stream ingestion · Real-time transcription · Translation · Cloud security · IoT</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= CONTACT ================= -->
+<footer class="foot" id="contact">
+  <div class="shell">
+    <p class="eyebrow rise">Open to DevOps, AI engineering, and systems work</p>
+    <h2 class="rise">Let's ship<br><span>something that stays up.</span></h2>
+    <p class="foot-note rise">Email is the fastest way to reach me. Bring a system that has to run continuously and I'll want to hear about it.</p>
+
+    <div class="foot-grid rise">
+      <div><h3>Email</h3><a href="mailto:ahmedemad456478@gmail.com">ahmedemad456478@gmail.com</a></div>
+      <div><h3>Phone</h3><a href="tel:+201068209680">+20 106 820 9680</a></div>
+      <div><h3>Based in</h3><p>Cairo, Egypt · Remote friendly</p></div>
+      <div><h3>GitHub</h3><a href="https://github.com/Delavigaa" target="_blank" rel="noopener">Delavigaa</a></div>
+      <div><h3>ORCID</h3><a href="https://orcid.org/0009-0004-2695-5822" target="_blank" rel="noopener">0009-0004-2695-5822</a></div>
+    </div>
+
+    <div class="colophon">
+      <span>© <span id="yr">2026</span> Ahmed Emad</span>
+      <span>Set in Bricolage Grotesque, Newsreader &amp; IBM Plex Mono</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var items = document.querySelectorAll('.rise');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function(el, i){ el.style.transitionDelay = (Math.min(i,4) * 60) + 'ms'; io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
