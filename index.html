@@ -156,6 +156,17 @@ img{max-width:100%}
 .skill p{margin:0;font-size:16.5px;font-weight:300;line-height:1.7;color:#C7CEDC}
 @media(max-width:760px){.skills{grid-template-columns:1fr}}
 
+/* ---------- recognition ---------- */
+.awards{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.awards li{display:grid;grid-template-columns:26px 1fr;gap:1rem;font-weight:300;color:#C7CEDC;padding-bottom:1rem;border-bottom:1px solid var(--line-soft)}
+.awards .n{font-family:var(--mono);font-size:11px;padding-top:.45em}
+.awards li:nth-child(1) .n{color:var(--violet)}
+.awards li:nth-child(2) .n{color:var(--amber)}
+.awards li:nth-child(3) .n{color:var(--mint)}
+.awards strong{font-weight:400;color:var(--text)}
+.awards a{text-decoration:none;color:var(--violet);border-bottom:1px solid rgba(167,139,255,.4);transition:opacity .18s}
+.awards a:hover{opacity:.7}
+
 /* ---------- contact ---------- */
 .foot{border-top:1px solid var(--line);padding:clamp(3rem,7vw,5rem) 0 3rem;position:relative;z-index:2}
 .foot h2{font-family:var(--display);font-weight:800;letter-spacing:-.04em;font-size:clamp(2.2rem,8vw,5rem);line-height:.9;margin:0 0 1.6rem}
@@ -393,6 +404,21 @@ img{max-width:100%}
         <div class="skill"><h3 class="sk-5">Web &amp; data</h3><p>React · Express · Node.js · MongoDB · SQL · REST APIs</p></div>
         <div class="skill"><h3 class="sk-6">Media pipelines</h3><p>FFmpeg · Live stream ingestion · Real-time transcription · Translation · Cloud security · IoT</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= RECOGNITION ================= -->
+  <section class="sec">
+    <div class="shell">
+      <div class="sec-head rise">
+        <h2>Recognition</h2>
+        <span class="eyebrow">Publication &amp; conference</span>
+      </div>
+      <ul class="awards rise">
+        <li><span class="n">01</span><span><strong>Accepted Paper, ICCA+U 2024</strong> — 7th International Conference on Contemporary Affairs in Architecture and Urbanism, Alanya University, Turkey, May 2024. <a href="https://drive.google.com/file/d/16ylLnx5pZ50RBb5aHQBjG_3uimR5N0wA/view?usp=sharing" target="_blank" rel="noopener">Acceptance letter</a></span></li>
+        <li><span class="n">02</span><span><strong>Certificate of Presentation, ICCA+U 2024</strong> — awarded for presenting <em>Innovative Design Synthesis: A Study of Architectural Evolution with Generative Adversarial Networks</em>. <a href="https://drive.google.com/file/d/1fXMj1x43mJz9hCW8Yr0ANhacPtsSC7R-/view?usp=sharing" target="_blank" rel="noopener">Certificate</a></span></li>
+        <li><span class="n">03</span><span><strong>ORCID researcher record</strong> <a href="https://orcid.org/0009-0004-2695-5822" target="_blank" rel="noopener">0009-0004-2695-5822</a></span></li>
+      </ul>
     </div>
   </section>
 
