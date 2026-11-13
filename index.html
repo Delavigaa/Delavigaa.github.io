@@ -110,14 +110,12 @@ img{max-width:100%}
 .sec-head .eyebrow{margin-left:auto}
 @media(max-width:620px){.sec-head{flex-wrap:wrap}.sec-head .eyebrow{margin-left:0;width:100%}}
 
-/* ---------- showcase grid for skills ---------- */
-.showcase-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:1.2rem;margin-top:1.5rem}
-.showcase-item{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:1.2rem;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s, border-color .2s}
+/* ---------- showcase grid for skills with inline players ---------- */
+.showcase-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(330px, 1fr));gap:1.4rem;margin-top:1.5rem}
+.showcase-item{background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s, border-color .2s}
 .showcase-item:hover{transform:translateY(-3px);border-color:var(--rose)}
-.showcase-item h4{font-family:var(--display);font-size:1.2rem;margin:0 0 .5rem;color:var(--text)}
-.showcase-item p{font-size:14px;color:var(--text-2);margin:0 0 1rem;font-family:var(--mono)}
-.showcase-link{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--rose);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;border-bottom:1px solid currentColor;padding-bottom:1px;width:fit-content}
-.showcase-link:hover{opacity:.75}
+.video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#07090E;border-bottom:1px solid var(--line-soft);overflow:hidden}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* ---------- work ---------- */
 .work{display:flex;flex-direction:column;gap:1.4rem}
@@ -126,6 +124,7 @@ img{max-width:100%}
 .card-roblox{--hue:var(--rose)}
 .card-combat{--hue:var(--mint)}
 .card-devops{--hue:var(--amber)}
+.card-research{--hue:var(--violet)}
 @media(max-width:860px){.card{grid-template-columns:1fr}}
 .card h3{font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.85rem);letter-spacing:-.025em;margin:.5rem 0 .7rem;line-height:1.15}
 .track{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--hue,var(--rose))}
@@ -153,6 +152,17 @@ img{max-width:100%}
 .role h3{font-family:var(--display);font-weight:600;font-size:1.3rem;letter-spacing:-.02em;margin:0 0 .2rem}
 .org{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--text-2);text-transform:uppercase;margin-bottom:.9rem}
 
+/* ---------- recognition / awards ---------- */
+.awards{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.awards li{display:grid;grid-template-columns:26px 1fr;gap:1rem;font-weight:300;color:#C7CEDC;padding-bottom:1rem;border-bottom:1px solid var(--line-soft)}
+.awards .n{font-family:var(--mono);font-size:11px;padding-top:.45em}
+.awards li:nth-child(1) .n{color:var(--violet)}
+.awards li:nth-child(2) .n{color:var(--amber)}
+.awards li:nth-child(3) .n{color:var(--mint)}
+.awards strong{font-weight:400;color:var(--text)}
+.awards a{text-decoration:none;color:var(--violet);border-bottom:1px solid rgba(167,139,255,.4);transition:opacity .18s}
+.awards a:hover{opacity:.7}
+
 /* ---------- skills ---------- */
 .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line);border-radius:2px;overflow:hidden}
 .skill{background:var(--surface);padding:1.6rem;transition:background .2s}
@@ -163,17 +173,6 @@ img{max-width:100%}
 .sk-4{color:var(--amber)} .sk-5{color:var(--violet)} .sk-6{color:var(--rose)}
 .skill p{margin:0;font-size:16.5px;font-weight:300;line-height:1.7;color:#C7CEDC}
 @media(max-width:760px){.skills{grid-template-columns:1fr}}
-
-/* ---------- recognition ---------- */
-.awards{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
-.awards li{display:grid;grid-template-columns:26px 1fr;gap:1rem;font-weight:300;color:#C7CEDC;padding-bottom:1rem;border-bottom:1px solid var(--line-soft)}
-.awards .n{font-family:var(--mono);font-size:11px;padding-top:.45em}
-.awards li:nth-child(1) .n{color:var(--violet)}
-.awards li:nth-child(2) .n{color:var(--amber)}
-.awards li:nth-child(3) .n{color:var(--mint)}
-.awards strong{font-weight:400;color:var(--text)}
-.awards a{text-decoration:none;color:var(--violet);border-bottom:1px solid rgba(167,139,255,.4);transition:opacity .18s}
-.awards a:hover{opacity:.7}
 
 /* ---------- contact ---------- */
 .foot{border-top:1px solid var(--line);padding:clamp(3rem,7vw,5rem) 0 3rem;position:relative;z-index:2}
@@ -214,6 +213,7 @@ img{max-width:100%}
       <a href="#showcase">Combat Demos</a>
       <a href="#work">Projects</a>
       <a href="#experience">Experience</a>
+      <a href="#recognition">Recognition</a>
       <a href="#skills">Toolkit</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -268,150 +268,308 @@ img{max-width:100%}
     <div class="shell">
       <div class="sec-head rise">
         <h2>Combat &amp; VFX Ability Showcase</h2>
-        <span class="eyebrow">Real video demos of engineered Roblox spells</span>
+        <span class="eyebrow">Direct inline video demos of engineered Roblox spells</span>
       </div>
-      <p class="lede rise" style="margin-bottom: 2rem;">A comprehensive showcase of custom combat mechanics built for high-performance games. Each ability is engineered with tight client-server synchronization, responsive hit detection, and polished particle choreography.</p>
+      <p class="lede rise" style="margin-bottom: 1.5rem;">A comprehensive showcase of custom combat mechanics built for high-performance games. Each ability is engineered with tight client-server synchronization, responsive hit detection, and polished particle choreography. All demos are loaded inline below for immediate playback.</p>
+<div class="showcase-grid rise" id="showcaseGrid">
+        <div class="showcase-item">
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/kd0smq" title="Dark Slash Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          </div>
+          <div class="showcase-body">
+            <div>
+              <h4>Dark Slash</h4>
+              <p>High-speed directional slash with particle trails and instant hit registration.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/kd0smq" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
+        </div>
 
-      <div class="showcase-grid rise">
         <div class="showcase-item">
-          <div>
-            <h4>Dark Slash</h4>
-            <p>High-speed directional slash with particle trails and instant hit registration.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/hgxtwf" title="Dark Wave Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/kd0smq" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Dark Wave</h4>
+              <p>Expanding conical shockwave delivering reliable area-of-effect damage.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/hgxtwf" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Dark Wave</h4>
-            <p>Expanding conical shockwave delivering reliable area-of-effect damage.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/52ul9u" title="Shadow Grasp Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/hgxtwf" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Shadow Grasp</h4>
+              <p>Targeted grappling ability featuring smooth physics-based restraint.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/52ul9u" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Shadow Grasp</h4>
-            <p>Targeted grappling ability featuring smooth physics-based restraint.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/z0eg29" title="Black Hole Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/52ul9u" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Black Hole</h4>
+              <p>Gravitational pull field trapping and dragging multiple entities simultaneously.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/z0eg29" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Black Hole</h4>
-            <p>Gravitational pull field trapping and dragging multiple entities simultaneously.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/8d8n6v" title="Dark Mist Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/z0eg29" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Dark Mist</h4>
+              <p>Area-of-effect concealment field applying customized status effects.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/8d8n6v" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Dark Mist</h4>
-            <p>Area-of-effect concealment field applying customized status effects.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/tw8c8f" title="Abyssal Hands Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/8d8n6v" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Abyssal Hands</h4>
+              <p>Summoned floor constructs executing synchronized trapping mechanics.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/tw8c8f" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Abyssal Hands</h4>
-            <p>Summoned floor constructs executing synchronized trapping mechanics.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/qr473c" title="Shadow Bullet Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/tw8c8f" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Shadow Bullet</h4>
+              <p>Fast projectile casting with predictive client-side interpolation.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/qr473c" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Shadow Bullet</h4>
-            <p>Fast projectile casting with predictive client-side interpolation.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/t0bm08" title="Dark Orb Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/qr473c" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Dark Orb</h4>
+              <p>Charged projectile system channeling elemental energy with build-up phase.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/t0bm08" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Dark Orb</h4>
-            <p>Charged projectile system channeling elemental energy with build-up phase.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/snygcr" title="Step Dark Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/t0bm08" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Step Dark</h4>
+              <p>Instantaneous shadow teleportation maneuver with zero-latency movement.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/snygcr" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Step Dark</h4>
-            <p>Instantaneous shadow teleportation maneuver with zero-latency movement.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/fg4aj7" title="Shadow Explosion Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/snygcr" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Shadow Explosion</h4>
+              <p>Delayed burst AoE detonation featuring camera shake and shockwave triggers.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/fg4aj7" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Shadow Explosion</h4>
-            <p>Delayed burst AoE detonation featuring camera shake and shockwave triggers.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/ch60o6" title="Void Collapse Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/fg4aj7" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Void Collapse</h4>
+              <p>Cataclysmic localized spatial implosion with multi-stage visual effects.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/ch60o6" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Void Collapse</h4>
-            <p>Cataclysmic localized spatial implosion with multi-stage visual effects.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/a5pm1s" title="Darkness Barrage Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/ch60o6" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Darkness Barrage</h4>
+              <p>Multi-hit projectile stream optimized for rapid consecutive target tracking.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/a5pm1s" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Darkness Barrage</h4>
-            <p>Multi-hit projectile stream optimized for rapid consecutive target tracking.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/aq969d" title="Shadow Clone Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/a5pm1s" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Shadow Clone</h4>
+              <p>Mirrored duplicate behavior mirroring player actions with clean AI logic.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/aq969d" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Shadow Clone</h4>
-            <p>Mirrored duplicate behavior mirroring player actions with clean AI logic.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/ejqtdn" title="Abyssal Eruption Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/aq969d" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Abyssal Eruption</h4>
+              <p>Vertical pillar damage sequence with sequential hitbox activation.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/ejqtdn" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Abyssal Eruption</h4>
-            <p>Vertical pillar damage sequence with sequential hitbox activation.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/zxy9q9" title="Dark Prison Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/ejqtdn" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Dark Prison</h4>
+              <p>Enclosing barrier containing opponents securely within defined boundaries.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/zxy9q9" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Dark Prison</h4>
-            <p>Enclosing barrier containing opponents securely within defined boundaries.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/ulx1ph" title="Void Rush Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/zxy9q9" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Void Rush</h4>
+              <p>High-speed momentum dash attack carrying enemies along trajectory.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/ulx1ph" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Void Rush</h4>
-            <p>High-speed momentum dash attack carrying enemies along trajectory.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/2govwq" title="Sword Slash Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/ulx1ph" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Sword Slash</h4>
+              <p>Fluid melee combo mechanics with precise frame-accurate hit registration.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/2govwq" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Sword Slash</h4>
-            <p>Fluid melee combo mechanics with precise frame-accurate hit registration.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/h2deba" title="Barrage Punch Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/2govwq" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Barrage Punch</h4>
+              <p>Rapid-fire melee combo sequence with dynamic animation track blending.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/h2deba" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Barrage Punch</h4>
-            <p>Rapid-fire melee combo sequence with dynamic animation track blending.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/hpoeru" title="Slash Skill Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/h2deba" target="_blank" rel="noopener">Watch Demo &rarr;</a>
+          <div class="showcase-body">
+            <div>
+              <h4>Slash Skill</h4>
+              <p>Precise close-quarters blade strike optimized for responsive input handling.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/hpoeru" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
+          </div>
         </div>
+
         <div class="showcase-item">
-          <div>
-            <h4>Slash Skill</h4>
-            <p>Precise close-quarters blade strike optimized for responsive input handling.</p>
+          <div class="video-wrap">
+            <iframe src="https://streamable.com/e/9o9zzc" title="Domain Void Demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
-          <a class="showcase-link" href="https://streamable.com/hpoeru" target="_blank" rel="noopener">Watch Demo &rarr;</a>
-        </div>
-        <div class="showcase-item">
-          <div>
-            <h4>Domain Void</h4>
-            <p>Expansive environmental transformation and domain expansion effect.</p>
+          <div class="showcase-body">
+            <div>
+              <h4>Domain Void</h4>
+              <p>Expansive environmental transformation and domain expansion effect.</p>
+            </div>
+            <div class="showcase-footer">
+              <a class="showcase-link" href="https://streamable.com/9o9zzc" target="_blank" rel="noopener">Open Externally &nearr;</a>
+            </div>
           </div>
-          <a class="showcase-link" href="https://streamable.com/9o9zzc" target="_blank" rel="noopener">Watch Demo &rarr;</a>
         </div>
       </div>
     </div>
@@ -432,8 +590,8 @@ img{max-width:100%}
             <span class="track">Scratch-Built Multiplayer Project</span>
             <h3>Magic Verse</h3>
             <p class="lede">A fully featured multiplayer action experience built completely from scratch in Roblox Studio, featuring advanced combat abilities, dynamic leveling, and persistent progress.</p>
-            <div class="links">
-              <a href="https://youtu.be/jAjDfKPO9FQ" target="_blank" rel="noopener">Watch Showcase Video</a>
+            <div style="margin-top:1.4rem;">
+              <a href="https://youtu.be/jAjDfKPO9FQ" target="_blank" rel="noopener" class="btn btn-fill" style="display:inline-flex; align-items:center; gap:.45rem; padding:.55rem 1rem; font-size:11.5px;">Watch Showcase on YouTube &nearr;</a>
             </div>
           </div>
           <div>
@@ -478,6 +636,27 @@ img{max-width:100%}
           </div>
         </article>
 
+        <article class="card card-research rise">
+          <div>
+            <span class="track">Research — published &amp; presented</span>
+            <h3>Architectural evolution with GANs</h3>
+            <p class="lede">Innovative Design Synthesis: A Study of Architectural Evolution with Generative Adversarial Networks — accepted and presented at ICCA+U 2024, Alanya University, Turkey.</p>
+            <div class="links">
+              <a href="https://drive.google.com/file/d/16ylLnx5pZ50RBb5aHQBjG_3uimR5N0wA/view?usp=sharing" target="_blank" rel="noopener">Acceptance letter</a>
+              <a href="https://drive.google.com/file/d/1fXMj1x43mJz9hCW8Yr0ANhacPtsSC7R-/view?usp=sharing" target="_blank" rel="noopener">Certificate</a>
+              <a href="https://orcid.org/0009-0004-2695-5822" target="_blank" rel="noopener">ORCID</a>
+            </div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li>Accepted to the 7th International Conference on Contemporary Affairs in Architecture and Urbanism, May 2024.</li>
+              <li>Awarded a Certificate of Presentation for delivering the paper at the conference.</li>
+              <li>Applied generative adversarial networks to design synthesis in an architectural context.</li>
+            </ul>
+            <div class="tags"><span class="tag">GANs</span><span class="tag">Deep learning</span><span class="tag">PyTorch</span><span class="tag">Research</span></div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -517,7 +696,20 @@ img{max-width:100%}
         </div>
 
         <div class="role rise">
-          <div class="when"><span class="dot dot-mint"></span>2020 — 2024</div>
+          <div class="when"><span class="dot dot-mint"></span>Nov 2023 — Jan 2024</div>
+          <div>
+            <h3>Full Stack Web Developer</h3>
+            <div class="org">ALX Software Engineering</div>
+            <ul class="bullets">
+              <li>Built a Bash console demonstrating scripting and command-line interface development.</li>
+              <li>Developed an interactive kernel in C, focused on advanced system-level programming.</li>
+              <li>Shipped a fully functional Airbnb clone with user authentication, a booking system, and property management.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role rise">
+          <div class="when"><span class="dot dot-violet"></span>2020 — 2024</div>
           <div>
             <h3>BSc Computer Science</h3>
             <div class="org">6th of October University</div>
@@ -525,6 +717,21 @@ img{max-width:100%}
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= RECOGNITION ================= -->
+  <section class="sec" id="recognition">
+    <div class="shell">
+      <div class="sec-head rise">
+        <h2>Recognition</h2>
+        <span class="eyebrow">Publication &amp; conference</span>
+      </div>
+      <ul class="awards rise">
+        <li><span class="n">01</span><span><strong>Accepted Paper, ICCA+U 2024</strong> — 7th International Conference on Contemporary Affairs in Architecture and Urbanism, Alanya University, Turkey, May 2024. <a href="https://drive.google.com/file/d/16ylLnx5pZ50RBb5aHQBjG_3uimR5N0wA/view?usp=sharing" target="_blank" rel="noopener">Acceptance letter</a></span></li>
+        <li><span class="n">02</span><span><strong>Certificate of Presentation, ICCA+U 2024</strong> — awarded for presenting <em>Innovative Design Synthesis: A Study of Architectural Evolution with Generative Adversarial Networks</em>. <a href="https://drive.google.com/file/d/1fXMj1x43mJz9hCW8Yr0ANhacPtsSC7R-/view?usp=sharing" target="_blank" rel="noopener">Certificate</a></span></li>
+        <li><span class="n">03</span><span><strong>ORCID researcher record</strong> <a href="https://orcid.org/0009-0004-2695-5822" target="_blank" rel="noopener">0009-0004-2695-5822</a></span></li>
+      </ul>
     </div>
   </section>
 
@@ -572,6 +779,8 @@ img{max-width:100%}
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Scroll reveal
   var items = document.querySelectorAll('.rise');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries){
