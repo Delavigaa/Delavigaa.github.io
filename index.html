@@ -199,6 +199,22 @@ img{max-width:100%}
   .layer-b{transform:scaleX(1)}
   .rise{opacity:1;transform:none}html{scroll-behavior:auto}
 }
+
+/* Visual refinement: readable type, deliberate highlights, efficient spacing */
+body{font-size:17px;line-height:1.65}
+.hero{padding:clamp(3rem,6vw,5.2rem) 0 clamp(2.5rem,4vw,3.5rem)}
+.name{font-size:clamp(3.8rem,10vw,8rem);line-height:.9}
+.hero-copy{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;margin-top:2rem;max-width:1120px}
+.hero-copy .thesis{font-family:var(--display);font-size:clamp(1.04rem,1.55vw,1.32rem);font-weight:400;line-height:1.62;max-width:none;margin:0;letter-spacing:-.012em;color:#DCE3F0}
+.hero-copy .thesis-secondary{color:#BFCADA;font-size:clamp(1rem,1.35vw,1.16rem);line-height:1.75}
+.hero-copy strong{font-weight:600}
+.accent-mint{color:var(--mint)}.accent-rose{color:#FF85A9}.accent-blue{color:#92B0FF}
+.stack{margin-top:2.25rem}.figs{margin-top:1rem}.actions{margin-top:1.7rem}
+.sec{padding:clamp(3rem,5.5vw,4.7rem) 0}.sec-head{margin-bottom:1.8rem}
+.work{gap:1rem}.card{padding:clamp(1.35rem,2.5vw,2rem);gap:clamp(1.2rem,3vw,2.8rem)}
+.lede{line-height:1.65}.bullets{line-height:1.6}.showcase-grid{gap:1rem}
+@media(max-width:800px){.hero-copy{grid-template-columns:1fr;gap:1rem}.hero-copy .thesis{font-size:clamp(1.08rem,2.6vw,1.3rem)}.hero-copy .thesis-secondary{font-size:1.05rem}.name{font-size:clamp(3.7rem,13vw,6.5rem)}}
+@media(max-width:480px){.hero{padding-top:2.8rem}.hero-copy{margin-top:1.5rem}.sec{padding:2.8rem 0}.fig{padding:1rem}}
 </style>
 </head>
 <body>
@@ -227,7 +243,10 @@ img{max-width:100%}
     <div class="shell">
       <h1 class="name">Ahmed<em>Emad</em></h1>
 
-      <p class="thesis">I engineer high-performance <b>Roblox combat systems</b>, modular ability frameworks, and smooth client-server replication that keep games responsive and exploit-resistant under heavy multiplayer action.</p>
+      <div class="hero-copy">
+        <p class="thesis">I'm a <strong class="accent-mint">Computer Science graduate</strong> and <strong class="accent-rose">Roblox Gameplay &amp; Systems Engineer</strong> specializing in <strong class="accent-blue">scalable gameplay architecture</strong>, advanced combat mechanics, <strong class="accent-mint">modular ability frameworks</strong>, AI-driven boss encounters, and reliable data persistence using DataStores.</p>
+        <p class="thesis thesis-secondary">I engineer high-performance, maintainable multiplayer systems built around <strong class="accent-blue">efficient client-server synchronization</strong> and exploit-resistant architecture. My work prioritizes <strong class="accent-mint">network efficiency</strong>, memory leak prevention, and <strong class="accent-rose">responsive gameplay</strong>, even during intensive multiplayer combat.</p>
+      </div>
 
       <div class="stack" aria-label="The technical stack I work across">
         <div class="layer l1">
@@ -587,20 +606,51 @@ img{max-width:100%}
 
         <article class="card card-roblox rise">
           <div>
-            <span class="track">Scratch-Built Multiplayer Project</span>
+            <span class="track">First Major Solo Project · Independent Development</span>
             <h3>Magic Verse</h3>
-            <p class="lede">A fully featured multiplayer action experience built completely from scratch in Roblox Studio, featuring advanced combat abilities, dynamic leveling, and persistent progress.</p>
-            <div style="margin-top:1.4rem;">
-              <a href="https://youtu.be/jAjDfKPO9FQ" target="_blank" rel="noopener" class="btn btn-fill" style="display:inline-flex; align-items:center; gap:.45rem; padding:.55rem 1rem; font-size:11.5px;">Watch Showcase on YouTube &nearr;</a>
+            <p class="lede">My first major solo Roblox project. I built the entire experience from the ground up, independently developing all gameplay systems and scripting, while also creating every UI element, sound effect, animation, and 3D model. I also created the visual effects, with some assistance from a friend on VFX. Although the game never officially launched, it was a major learning experience that helped me grow as a developer and laid the foundation for my later professional work.</p>
+            <div class="video-wrap" style="border:1px solid var(--line);border-radius:3px;margin-top:1.4rem;">
+              <iframe src="https://streamable.com/e/k5zwwb" title="Magic Verse project showcase" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
+            <div class="links"><a href="https://streamable.com/k5zwwb" target="_blank" rel="noopener noreferrer">Watch Magic Verse showcase</a></div>
           </div>
           <div>
             <ul class="bullets">
-              <li><strong>Server-Authoritative Combat:</strong> Engineered secure ability execution, cooldown management, and validation loops to completely eliminate client exploits and cheating.</li>
-              <li><strong>Zero Data Loss Persistence:</strong> Implemented robust data management with session locking and automatic backups, ensuring player inventories and progress are 100% secure.</li>
-              <li><strong>Performance Optimization:</strong> Profiled memory usage and streamlined network traffic to maintain a stable 60 FPS even during heavy multi-player server battles.</li>
+              <li><strong>End-to-End Ownership:</strong> Created the gameplay scripting, user interface, sound effects, animations, and 3D models, and developed the visual effects with some assistance from a friend.</li>
+              <li><strong>Gameplay Systems:</strong> Developed combat abilities, progression mechanics, and persistent player data as part of the experience.</li>
+              <li><strong>Learning Through Building:</strong> Led the full development pipeline, from early prototypes to an extensive playable project, despite not reaching an official launch.</li>
             </ul>
-            <div class="tags"><span class="tag">Luau</span><span class="tag">Roblox Studio</span><span class="tag">DataStores</span><span class="tag">Client-Server</span><span class="tag">Combat Framework</span></div>
+            <div class="tags"><span class="tag">Solo Project</span><span class="tag">Luau</span><span class="tag">UI</span><span class="tag">VFX &amp; SFX</span><span class="tag">Animation</span><span class="tag">3D Modeling</span></div>
+          </div>
+        </article>
+
+        <article class="card card-roblox rise">
+          <div>
+            <span class="track">Collaborative Roblox Experiences</span>
+            <h3>Anime Final Strike &amp; Type Rune</h3>
+            <p class="lede">After Magic Verse, I continued developing my skills by contributing to other Roblox experiences, including Anime Final Strike and Type Rune. Working across different projects gave me experience collaborating with other developers and building systems for broader gameplay needs.</p>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><strong>Anime Final Strike:</strong> Roblox development experience as part of my work beyond independent projects.</li>
+              <li><strong>Type Rune:</strong> Additional collaborative Roblox experience, expanding my approach to project architecture and teamwork.</li>
+            </ul>
+            <div class="tags"><span class="tag">Roblox</span><span class="tag">Luau</span><span class="tag">Collaboration</span><span class="tag">Game Systems</span></div>
+          </div>
+        </article>
+
+        <article class="card card-combat rise">
+          <div>
+            <span class="track">Professional Roblox Development · ForestlyGames</span>
+            <h3>Strikeout</h3>
+            <p class="lede">Professional development work on Strikeout with ForestlyGames, gaining valuable experience building scalable systems for real players and contributing within a studio development environment.</p>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><strong>Studio Collaboration:</strong> Contributed to Strikeout as part of professional work with ForestlyGames.</li>
+              <li><strong>Scalable Development:</strong> Gained hands-on experience building systems with real players and long-term maintainability in mind.</li>
+            </ul>
+            <div class="tags"><span class="tag">ForestlyGames</span><span class="tag">Roblox</span><span class="tag">Scalable Systems</span><span class="tag">Studio Experience</span></div>
           </div>
         </article>
 
@@ -676,6 +726,7 @@ img{max-width:100%}
             <h3>Roblox Scripter &amp; Combat Engineer</h3>
             <div class="org">Multiple Studios &amp; Independent Collaborations</div>
             <ul class="bullets">
+              <li>Started with Magic Verse, my first major solo project, then worked on Anime Final Strike, Type Rune, and Strikeout with ForestlyGames.</li>
               <li>Collaborated with numerous studios and developers across multiple Roblox experiences, building complex combat systems, custom spells, and backend architectures from scratch.</li>
               <li>Engineered a vast library of modular abilities, spatial hitboxes, domain expansions, and synchronized client-server VFX choreography.</li>
               <li>Refactored legacy codebases into clean, maintainable object-oriented Luau architecture to optimize performance and speed up development cycles.</li>
