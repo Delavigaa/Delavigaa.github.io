@@ -116,6 +116,12 @@ img{max-width:100%}
 .showcase-item:hover{transform:translateY(-3px);border-color:var(--rose)}
 .video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#07090E;border-bottom:1px solid var(--line-soft);overflow:hidden}
 .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.showcase-body{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:.9rem;padding:1rem 1.15rem 1.05rem}
+.showcase-body h4{font-family:var(--display);font-weight:600;font-size:1.12rem;letter-spacing:-.015em;line-height:1.2;margin:0 0 .35rem;color:var(--text)}
+.showcase-body p{margin:0;font-size:15px;line-height:1.55;font-weight:300;color:#B9C2D3}
+.showcase-footer{display:flex;justify-content:flex-end;padding-top:.75rem;border-top:1px solid var(--line-soft)}
+.showcase-link{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--rose);border-bottom:1px solid rgba(255,78,135,.4);padding-bottom:2px;transition:opacity .18s}
+.showcase-link:hover,.showcase-link:focus-visible{opacity:.7}
 
 /* ---------- work ---------- */
 .work{display:flex;flex-direction:column;gap:1.4rem}
@@ -126,6 +132,24 @@ img{max-width:100%}
 .card-devops{--hue:var(--amber)}
 .card-research{--hue:var(--violet)}
 @media(max-width:860px){.card{grid-template-columns:1fr}}
+.card-wide{grid-column:1/-1}
+.dual-video{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.dual-video figure{margin:0}
+.dual-video figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--hue,var(--rose));margin-bottom:.55rem}
+.dual-video .video-wrap{border:1px solid var(--line);border-radius:3px}
+@media(max-width:760px){.dual-video{grid-template-columns:1fr}}
+#strikeout{row-gap:1.3rem}
+#strikeout h3{margin-bottom:.5rem}
+#strikeout .links{margin-top:.8rem}
+.card-head{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:clamp(1.2rem,3vw,2.4rem);align-items:start}
+.card-intro{margin-bottom:.55rem}
+.card-intro:last-child{margin-bottom:0}
+.figs.card-figs{margin-top:.35rem;grid-template-columns:1fr 1fr}
+.card-figs .fig{background:var(--surface-2)}
+.card-figs .fig-n{font-size:clamp(1.15rem,1.8vw,1.5rem);white-space:nowrap}
+@media(max-width:860px){.card-head{grid-template-columns:1fr}.figs.card-figs{margin-top:0}}
+.bullets-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:2.4rem}
+@media(max-width:760px){.bullets-grid{grid-template-columns:1fr}}
 .card h3{font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.85rem);letter-spacing:-.025em;margin:.5rem 0 .7rem;line-height:1.15}
 .track{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--hue,var(--rose))}
 .lede{margin:0 0 1.2rem;font-weight:300;color:#B9C2D3}
@@ -624,6 +648,28 @@ body{font-size:17px;line-height:1.65}
           </div>
         </article>
 
+        <article class="card card-combat rise">
+          <div>
+            <span class="track">Solo Project · Fighting Game Systems</span>
+            <h3>Sprite Fighter — 2D PvP</h3>
+            <p class="lede">A 2D sprite fighting game built inside Roblox. It has six playable fighters, each with a combo chain, a heavy and a special: two martial artists, plus four elemental fighters (Earth, Fire, Air and Water) who also have a super. All combat is server-authoritative and every hitbox is tied to the exact animation frame on screen. The video was recorded live in Roblox Studio Play mode.</p>
+            <div class="video-wrap" style="border:1px solid var(--line);border-radius:3px;margin-top:1.4rem;">
+              <iframe src="https://streamable.com/e/jcpf22" title="Sprite Fighter gameplay showcase" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="links"><a href="https://streamable.com/jcpf22" target="_blank" rel="noopener noreferrer">Watch Sprite Fighter showcase</a></div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><strong>Frame-Accurate Combat:</strong> Hitboxes are declared per animation frame and measured from the striking limb or the drawn effect. The server checks every frame a move passes through, so a fast strike is never skipped.</li>
+              <li><strong>Fighting-Game Rules:</strong> 3-hit combo chains with an input buffer, hitstop, knockback and knockdowns, blocking with chip damage, armored moves, projectiles, combo damage scaling, and hitstun decay to stop infinite loops.</li>
+              <li><strong>Server Authority with Client Prediction:</strong> Attacks start instantly on the client, while the server validates every request and movement update using shared move rules. Teleport and fly hacks are rejected.</li>
+              <li><strong>Sprite Animation Engine:</strong> A custom sprite-sheet animator with per-frame timing, frame-synced playback, layered effects and textures kept loaded so fighters never flicker.</li>
+              <li><strong>Complete Fighting Experience:</strong> CPU opponents that approach, combo, block and use specials, a training dummy with a guard mode, and a live hitbox debug view for checking every attack.</li>
+            </ul>
+            <div class="tags"><span class="tag">Luau</span><span class="tag">Sprite Animation</span><span class="tag">Frame Data</span><span class="tag">Hitboxes</span><span class="tag">Client Prediction</span><span class="tag">Server Authority</span><span class="tag">AI Opponents</span></div>
+          </div>
+        </article>
+
         <article class="card card-roblox rise">
           <div>
             <span class="track">Collaborative Roblox Experiences</span>
@@ -639,18 +685,52 @@ body{font-size:17px;line-height:1.65}
           </div>
         </article>
 
-        <article class="card card-combat rise">
-          <div>
+        <article class="card card-combat rise" id="strikeout">
+          <div class="card-wide">
             <span class="track">Professional Roblox Development · ForestlyGames</span>
             <h3>Strikeout</h3>
-            <p class="lede">Professional development work on Strikeout with ForestlyGames, gaining valuable experience building scalable systems for real players and contributing within a studio development environment.</p>
+            <div class="card-head">
+            <div>
+            <p class="lede card-intro">Strikeout is a multiplayer arena fighting game developed with ForestlyGames, where I scripted most of the game's frontend and backend systems. I built a server-authoritative combat engine, AI opponents, multiplayer Survival modes, a configurable gacha with rarity-based summons and pity, and a 3D inventory for weapons, skins, auras and cosmetics. I also built the progression and achievement systems, player-to-player trading, the economy and monetization, and persistent player data. My work spanned client and server: UI, animation and visual feedback, gameplay logic, secure client-server communication, data persistence and cross-platform support. Everything was built as modular systems that stay responsive in multiplayer.</p>
+            <p class="lede card-intro">The showcases below show the combat and the game systems running live in Roblox Studio.</p>
+            </div>
+            <div class="figs card-figs">
+              <div class="fig fig-1"><div class="fig-n">5 Weapons</div><div class="fig-l">35+ attacks, specials &amp; grabs</div></div>
+              <div class="fig fig-2"><div class="fig-n">11 Packs</div><div class="fig-l">Summons across 5 rarity tiers</div></div>
+              <div class="fig fig-3"><div class="fig-n">30+ Auras</div><div class="fig-l">Full-character effects, Common to Mythical</div></div>
+              <div class="fig fig-4"><div class="fig-n">60+ Cosmetics</div><div class="fig-l">Kill banners &amp; kill animations</div></div>
+            </div>
+            </div>
           </div>
-          <div>
-            <ul class="bullets">
-              <li><strong>Studio Collaboration:</strong> Contributed to Strikeout as part of professional work with ForestlyGames.</li>
-              <li><strong>Scalable Development:</strong> Gained hands-on experience building systems with real players and long-term maintainability in mind.</li>
+          <div class="card-wide">
+            <div class="dual-video">
+              <figure>
+                <figcaption>Combat showcase</figcaption>
+                <div class="video-wrap">
+                  <iframe src="https://streamable.com/e/a9sp6q" title="Strikeout combat showcase" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+              </figure>
+              <figure>
+                <figcaption>Systems showcase</figcaption>
+                <div class="video-wrap">
+                  <iframe src="https://streamable.com/e/oshr99" title="Strikeout systems showcase" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+              </figure>
+            </div>
+            <div class="links"><a href="https://streamable.com/a9sp6q" target="_blank" rel="noopener noreferrer">Watch combat showcase</a><a href="https://streamable.com/oshr99" target="_blank" rel="noopener noreferrer">Watch systems showcase</a></div>
+          </div>
+          <div class="card-wide">
+            <ul class="bullets bullets-grid">
+              <li><strong>Combat Engine:</strong> Five weapons (Greatsword, Spear, Scythe, Bow and Gauntlets), each with light and heavy attacks, air attacks, a grab, three specials and a block that deflects hits. Every move has startup, active and recovery timing, and knockback scales with damage, like in a platform fighter. Hit detection, damage, launches and grabs all run on the server, and a hitbox debug view helps tune every move.</li>
+              <li><strong>AI Enemies &amp; Survival Mode:</strong> AI fighters with player-style names, every weapon type and difficulty settings battle real players in arena Survival rounds, after mode and map votes with live map previews. Rounds feature breakable loot presents, respawning power-ups, timed events (Double Rubies, Golden Chest, Hot Zone, Bounty), a 12-event mutator system, spectating, and kill banners and kill animations on every KO.</li>
+              <li><strong>Gacha &amp; Auras:</strong> Eleven summon packs (weapon, elite, aura, event and Friendship packs) with weighted odds across five rarities, soft and hard pity, and luck boosts. Single and 10x summons get cinematic reveals that scale with rarity. Packs on display in the lobby can be viewed or bought with a single key, and 30+ auras give the whole character a visual effect.</li>
+              <li><strong>3D Inventory &amp; Cosmetics:</strong> A showroom places a copy of the player's avatar in a dojo scene to preview weapons, skins and auras. Kill animations play on a demo rig, and kill banners preview exactly as they appear on a KO. Search, bulk delete, storage limits and per-weapon stats keep large collections manageable.</li>
+              <li><strong>Progression &amp; Retention:</strong> XP levels up to 100 with milestone packs, reputation ranks with titles, badges and rank banners, weapon achievements, weekly quests, and a quest-based weapon unlock. A 30-day login streak, 12 playtime gifts, Pro Max rewards and a daily Golden Weapon pick bring players back. New players start by choosing their first weapon.</li>
+              <li><strong>Shop &amp; Monetization:</strong> VIP tiers, six gamepasses, ruby packs, bundles, and Robux cosmetics with live 3D previews, all granted through a single receipt-processing pipeline. In-world shop NPCs and purchase celebrations round out the buying experience.</li>
+              <li><strong>Social &amp; Trading:</strong> Player-to-player trading with requests, item and ruby offers, and a Ready/Confirm handshake that the server re-validates before anything changes hands. Players also get rewards for playing with friends, VIP nametags, and global leaderboards for wins, levels and kills.</li>
+              <li><strong>Backend, Security &amp; Platforms:</strong> Session-cached DataStore persistence with backup stores, and rate-limited remotes that the server validates. PolicyService checks keep paid summons compliant in every region. Funnel analytics and admin tools support live operations, and the game runs on PC, mobile and controller with responsive, animated UI.</li>
             </ul>
-            <div class="tags"><span class="tag">ForestlyGames</span><span class="tag">Roblox</span><span class="tag">Scalable Systems</span><span class="tag">Studio Experience</span></div>
+            <div class="tags"><span class="tag">ForestlyGames</span><span class="tag">Luau</span><span class="tag">Combat Systems</span><span class="tag">AI Enemies</span><span class="tag">Gacha</span><span class="tag">Auras</span><span class="tag">3D Inventory</span><span class="tag">Progression</span><span class="tag">Monetization</span><span class="tag">Trading</span><span class="tag">DataStores</span><span class="tag">Analytics</span><span class="tag">Cross-Platform</span></div>
           </div>
         </article>
 
@@ -726,7 +806,7 @@ body{font-size:17px;line-height:1.65}
             <h3>Roblox Scripter &amp; Combat Engineer</h3>
             <div class="org">Multiple Studios &amp; Independent Collaborations</div>
             <ul class="bullets">
-              <li>Started with Magic Verse, my first major solo project, then worked on Anime Final Strike, Type Rune, and Strikeout with ForestlyGames.</li>
+              <li>Started with Magic Verse, my first major solo project, then worked on Anime Final Strike and Type Rune, and built most of Strikeout with ForestlyGames: its combat, AI enemies, gacha, auras, 3D inventory, shop, rewards and trading.</li>
               <li>Collaborated with numerous studios and developers across multiple Roblox experiences, building complex combat systems, custom spells, and backend architectures from scratch.</li>
               <li>Engineered a vast library of modular abilities, spatial hitboxes, domain expansions, and synchronized client-server VFX choreography.</li>
               <li>Refactored legacy codebases into clean, maintainable object-oriented Luau architecture to optimize performance and speed up development cycles.</li>
